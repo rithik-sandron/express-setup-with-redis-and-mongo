@@ -13,8 +13,19 @@ var router = express.Router();
 // });
 
 router.get('/', async function (req, res) {
-  res.send('zro');
+  res.json('zro');
 });
+
+
+router.post('/u/create', async function (req, res) {
+  res.json({data: req.body, file: req.file});
+
+});
+
+router.get('/u/:username', async function (req, res) {
+  res.json(req.params.username);
+});
+
 
 router.post('/p', async function (req, res) {
   const body = req.body;

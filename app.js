@@ -5,6 +5,7 @@ var escapeHtml = require('escape-html');
 var { mongoConnect } = require('./db/mongo')
 var express = require('express');
 var marked = require('marked');
+var cors = require("cors");
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -12,6 +13,7 @@ var indexRouter = require('./routes/index');
 var { log, requestTime } = require('./routes/middleware')
 
 var app = express();
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
